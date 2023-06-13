@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Present Value Calculator</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+    <script src="/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <h1>Welcome to Present Value Calculator</h1>
+    <label for="model" class="form-label">Model</label>
+    <input class="form-control mb-3" list="datalistOptions" id="model" name="model" placeholder="Type to search..." onchange="populateFields()">
+    <datalist id="datalistOptions">
+        <% for (let model of data) { %>
+            <option value="<%= model.MODEL %>"><%= model.MODEL %></option>
+        <% } %>
+    </datalist>
+    <label for="launch" class="form-label">Launch Date</label>
+    <input class="form-control mb-3" type="text" placeholder="Launch Date" id="launch" aria-label="Disabled input example" disabled>
+    <label for="version" class="form-label">Version</label>
+    <input class="form-control mb-3" type="text" placeholder="Version" id="version" aria-label="Disabled input example" disabled>
+    <label for="price-new" class="form-label">Price of New</label>
+    <input class="form-control mb-3" type="text" placeholder="Disabled input" id="price-new" aria-label="Disabled input example" disabled>
+    <label for="elasped-months" class="form-label">No of Months Elasped</label>
+    <input class="form-control mb-3" type="number" placeholder="Disabled input" id="elasped-months" aria-label="Disabled input example" disabled>
+    <script>
+        var modelData = { droneData: '<%- JSON.stringify(data) %>' }
+    </script>
+    <script src="/js/script.js"></script>
+</body>
+</html>
